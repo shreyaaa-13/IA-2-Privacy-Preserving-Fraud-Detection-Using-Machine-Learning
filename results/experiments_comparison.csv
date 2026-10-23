@@ -1,0 +1,25 @@
+Experiment,Threshold,Precision,Recall,F1-Score,PR-AUC,ROC-AUC,Accuracy,Runtime (s),Memory (MB),Privacy/Attack Metric,Notes/Limitations
+Baseline_RF_DefaultThresh_stratified,0.5,0.8387,0.7959,0.8168,0.8256,0.9518,0.9994,33.587,727.6,None (Non-Private Baseline),Random Forest with default decision threshold tau = 0.50.
+Baseline_RF_TunedThresh_stratified,0.39,0.781,0.8367,0.8079,0.8256,0.9518,0.9993,33.587,727.6,None (Non-Private Baseline),Random Forest with validation-tuned threshold tau* = 0.3900.
+Baseline_RF_TunedThresh_MultiSeed,0.50,0.7810 ± 0.0000,0.8367 ± 0.0000,0.8079 ± 0.0000,0.8256 ± 0.0000,0.9518 ± 0.0000,0.9993 ± 0.0000,N/A,N/A,N/A,Averaged across 1 independent random seeds: [42].
+MIA_vs_Baseline Random Forest (Non-Private),N/A,0.4999,0.9872,0.6637,N/A,0.4998,0.4998,N/A,N/A,MIA AUC: 0.4998 | Advantage: 0.0000,Shadow-model MIA evaluated against Baseline Random Forest (Non-Private).
+MIA_vs_Logistic Regression (Non-Private Ref),N/A,0.5,0.984,0.6631,N/A,0.5044,0.5,N/A,N/A,MIA AUC: 0.5044 | Advantage: 0.0000,Shadow-model MIA evaluated against Logistic Regression (Non-Private Ref).
+MIA_vs_DP-LogisticReg (eps=10.0),N/A,0.5037,0.0272,0.0516,N/A,0.4992,0.5002,N/A,N/A,MIA AUC: 0.4992 | Advantage: 0.0004,Shadow-model MIA evaluated against DP-LogisticReg (eps=10.0).
+MIA_vs_DP-LogisticReg (eps=1.0),N/A,0.4811,0.0864,0.1465,N/A,0.4897,0.4966,N/A,N/A,MIA AUC: 0.4897 | Advantage: 0.0000,Shadow-model MIA evaluated against DP-LogisticReg (eps=1.0).
+MIA_vs_DP-LogisticReg (eps=0.1),N/A,0.4877,0.2692,0.3469,N/A,0.4977,0.4932,N/A,N/A,MIA AUC: 0.4977 | Advantage: 0.0000,Shadow-model MIA evaluated against DP-LogisticReg (eps=0.1).
+Standard_LogisticRegression_NonPrivate,0.5,0.0622,0.9082,0.1163,0.7193,0.9732,0.9763,1.312,747.12,None (Non-Private Reference),Standard Logistic Regression without DP noise.
+DP_LogisticRegression_eps_0.1,0.5,0.0431,0.7347,0.0815,0.0968,0.8505,0.9715,0.407,749.73,"Pure $\epsilon$-DP ($\epsilon=0.1, C=5.0$)",diffprivlib objective perturbation with L2 norm bound C=5.0.
+DP_LogisticRegression_eps_1.0,0.5,0.074,0.7959,0.1354,0.1774,0.9083,0.9825,0.591,750.59,"Pure $\epsilon$-DP ($\epsilon=1.0, C=5.0$)",diffprivlib objective perturbation with L2 norm bound C=5.0.
+DP_LogisticRegression_eps_10.0,0.5,0.0651,0.898,0.1214,0.3275,0.9739,0.9776,0.385,751.02,"Pure $\epsilon$-DP ($\epsilon=10.0, C=5.0$)",diffprivlib objective perturbation with L2 norm bound C=5.0.
+PyTorch_MLP_NonPrivate,0.5,0.0257,0.9286,0.05,0.2965,0.9723,0.9393,6.749,798.05,None (Non-Private PyTorch Baseline),Reference neural network trained without gradient noise.
+PyTorch_Opacus_DPSGD,0.5,0.8043,0.7551,0.7789,0.6392,0.8955,0.9993,12.294,871.38,"DP-SGD ($\epsilon=4.99, \delta=1e-05$)",PyTorch/Opacus DP-SGD with per-sample clipping C=1.0 and RDP accounting.
+LDP_RF_eps_0.5,0.5,0.9625,0.7857,0.8652,0.8595,0.9626,0.9996,11.271,919.16,"LDP Laplace $\epsilon_{loc}=0.5$, Wasserstein Dist=4.8782",Client-side LDP perturbation applied to feature 'Amount'. Aggregator is untrusted.
+LDP_RF_eps_1.0,0.5,0.9506,0.7857,0.8603,0.8596,0.9603,0.9996,12.355,921.09,"LDP Laplace $\epsilon_{loc}=1.0$, Wasserstein Dist=3.9346",Client-side LDP perturbation applied to feature 'Amount'. Aggregator is untrusted.
+LDP_RF_eps_5.0,0.5,0.9747,0.7857,0.8701,0.8588,0.9584,0.9996,21.457,922.49,"LDP Laplace $\epsilon_{loc}=5.0$, Wasserstein Dist=1.2355",Client-side LDP perturbation applied to feature 'Amount'. Aggregator is untrusted.
+Non_Anonymized_Reference,0.5,0.6,0.6,0.6,0.7117,0.9997,0.9992,2.399,938.74,k=1 (No Anonymization),Raw feature representation without PPDM transformation.
+PPDM_Microaggregation_k5,0.5,0.5714,0.8,0.6667,0.5023,0.9709,0.9992,23.886,881.55,"k-Anonymity (k=5), Info Loss=12.2%",Centroid replacement in clusters of size k=5. Records indistinguishable within cluster.
+PPDM_Microaggregation_k10,0.5,0.6,0.6,0.6,0.5367,0.9994,0.9992,4.42,882.22,"k-Anonymity (k=10), Info Loss=16.1%",Centroid replacement in clusters of size k=10. Records indistinguishable within cluster.
+Adversarial_Compressive_d4_lam0.0,0.5,0.0538,0.9082,0.1015,0.7019,0.9824,0.9723,33.525,930.99,"Dim=4, $\lambda=0.0$ | Adv AUC(S): 0.7411",Adversarial autoencoder with latent dimension 4 and penalty lambda=0.0. Adversary AUC measures leakage of sensitive amount tier proxy S.
+Adversarial_Compressive_d4_lam0.5,0.5,0.0685,0.898,0.1273,0.6982,0.9793,0.9788,24.542,927.39,"Dim=4, $\lambda=0.5$ | Adv AUC(S): 0.5792",Adversarial autoencoder with latent dimension 4 and penalty lambda=0.5. Adversary AUC measures leakage of sensitive amount tier proxy S.
+Adversarial_Compressive_d8_lam0.0,0.5,0.1074,0.8878,0.1916,0.7317,0.9817,0.9871,33.475,929.06,"Dim=8, $\lambda=0.0$ | Adv AUC(S): 0.8344",Adversarial autoencoder with latent dimension 8 and penalty lambda=0.0. Adversary AUC measures leakage of sensitive amount tier proxy S.
+Adversarial_Compressive_d8_lam0.5,0.5,0.0572,0.9082,0.1076,0.7014,0.9838,0.9741,36.615,929.75,"Dim=8, $\lambda=0.5$ | Adv AUC(S): 0.5583",Adversarial autoencoder with latent dimension 8 and penalty lambda=0.5. Adversary AUC measures leakage of sensitive amount tier proxy S.

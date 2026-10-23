@@ -1,0 +1,18 @@
+{
+    "experiment_name": "Baseline_RandomForest_stratified",
+    "precision": 0.8387,
+    "recall": 0.7959,
+    "f1_score": 0.8168,
+    "pr_auc": 0.8256,
+    "roc_auc": 0.9518,
+    "accuracy": 0.9994,
+    "balanced_accuracy": 0.8978,
+    "specificity": 0.9997,
+    "true_positives_tp": 78,
+    "false_positives_fp": 15,
+    "true_negatives_tn": 56849,
+    "false_negatives_fn": 20,
+    "accuracy_critique": "Accuracy is misleading: If a naive model predicts all transactions as legitimate (0), it achieves ~99.83% accuracy, while detecting zero fraud (Recall=0.0). PR-AUC, Recall, and Precision are the primary authoritative metrics.",
+    "notes": "Trained with stratified split. Non-private baseline.",
+    "privacy_or_attack_metric": "None (Non-Private Baseline)"
+}

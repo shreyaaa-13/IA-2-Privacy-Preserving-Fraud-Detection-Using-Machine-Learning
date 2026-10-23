@@ -1,0 +1,35 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Real Raw Dataset (Excluded due to ~150MB size & distribution licensing)
+data/creditcard.csv
+data/*.zip
+data/*.tar.gz
+
+# Retain synthetic test dataset for offline verification
+!data/synthetic_creditcard.csv
+!data/README.md
+
+# Build and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

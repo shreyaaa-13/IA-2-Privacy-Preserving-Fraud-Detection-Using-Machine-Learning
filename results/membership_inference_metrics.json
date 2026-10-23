@@ -1,0 +1,67 @@
+[
+    {
+        "experiment_name": "MIA_vs_Baseline Random Forest (Non-Private)",
+        "model_evaluated": "Baseline Random Forest (Non-Private)",
+        "attack_auc": 0.4998,
+        "attack_accuracy": 0.4998,
+        "random_baseline_acc": 0.5,
+        "attacker_advantage": 0.0,
+        "attack_precision": 0.4999,
+        "attack_recall": 0.9872,
+        "attack_f1_score": 0.6637,
+        "privacy_or_attack_metric": "MIA AUC: 0.4998 | Adv: 0.0000",
+        "notes": "4-way disjoint split with 50/50 balanced member/non-member evaluation."
+    },
+    {
+        "experiment_name": "MIA_vs_Logistic Regression (Non-Private Ref)",
+        "model_evaluated": "Logistic Regression (Non-Private Ref)",
+        "attack_auc": 0.5044,
+        "attack_accuracy": 0.5,
+        "random_baseline_acc": 0.5,
+        "attacker_advantage": 0.0,
+        "attack_precision": 0.5,
+        "attack_recall": 0.984,
+        "attack_f1_score": 0.6631,
+        "privacy_or_attack_metric": "MIA AUC: 0.5044 | Adv: 0.0000",
+        "notes": "4-way disjoint split with 50/50 balanced member/non-member evaluation."
+    },
+    {
+        "experiment_name": "MIA_vs_DP-LogisticReg (eps=10.0)",
+        "model_evaluated": "DP-LogisticReg (eps=10.0)",
+        "attack_auc": 0.4992,
+        "attack_accuracy": 0.5002,
+        "random_baseline_acc": 0.5,
+        "attacker_advantage": 0.0004,
+        "attack_precision": 0.5037,
+        "attack_recall": 0.0272,
+        "attack_f1_score": 0.0516,
+        "privacy_or_attack_metric": "MIA AUC: 0.4992 | Adv: 0.0004",
+        "notes": "4-way disjoint split with 50/50 balanced member/non-member evaluation."
+    },
+    {
+        "experiment_name": "MIA_vs_DP-LogisticReg (eps=1.0)",
+        "model_evaluated": "DP-LogisticReg (eps=1.0)",
+        "attack_auc": 0.4897,
+        "attack_accuracy": 0.4966,
+        "random_baseline_acc": 0.5,
+        "attacker_advantage": 0.0,
+        "attack_precision": 0.4811,
+        "attack_recall": 0.0864,
+        "attack_f1_score": 0.1465,
+        "privacy_or_attack_metric": "MIA AUC: 0.4897 | Adv: 0.0000",
+        "notes": "4-way disjoint split with 50/50 balanced member/non-member evaluation."
+    },
+    {
+        "experiment_name": "MIA_vs_DP-LogisticReg (eps=0.1)",
+        "model_evaluated": "DP-LogisticReg (eps=0.1)",
+        "attack_auc": 0.4977,
+        "attack_accuracy": 0.4932,
+        "random_baseline_acc": 0.5,
+        "attacker_advantage": 0.0,
+        "attack_precision": 0.4877,
+        "attack_recall": 0.2692,
+        "attack_f1_score": 0.3469,
+        "privacy_or_attack_metric": "MIA AUC: 0.4977 | Adv: 0.0000",
+        "notes": "4-way disjoint split with 50/50 balanced member/non-member evaluation."
+    }
+]
